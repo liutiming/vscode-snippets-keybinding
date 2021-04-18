@@ -1,0 +1,106 @@
+// {
+// 	// Place your snippets for r here. Each snippet is defined under a snippet name and has a prefix, body and 
+// 	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+// 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+// 	// same ids are connected.
+// 	// Example:
+// 	// "Print to console": {
+// 	// 	"prefix": "log",
+// 	// 	"body": [
+// 	// 		"console.log('$1');",
+// 	// 		"$2"
+// 	// 	],
+// 	// 	"description": "Log output to console"
+// 	// }
+// }
+{
+	"Assignment operator": {
+		"prefix": "Assignment operator",
+		"body": " <- "
+	},
+	"magrittr pipe": {
+		"prefix": "magrittr pipe",
+		"body": " %>% "
+	},
+	"targets_path_to": {
+		"prefix": "path_to",
+		"body": "path_to_${1:object_name}  <- function() { ${2:file_path} }"
+	},
+	"targets_read_file": {
+		"prefix": "targets_read",
+		"body": [
+			", tar_target(${1:target_name}_file, path_to_${1:target_name}(), format = 'file') ",
+			", tar_target(${1:target_name}, read_tsv(${1:target_name}_file))",
+			"path_to_${1:object_name}  <- function() { ${2:file_path} }"
+		]
+	},
+	"targets_target": {
+		"prefix": "targets_target",
+		"body": [
+			", tar_target(${1:target_name}, ${2:function})",
+		]
+	},
+	"targets_target_iteration": {
+		"prefix": "targets_target_iteration",
+		"body": [
+			", tar_target(${1:target_name}, ${2:function}(${3:iterator}), iteration = 'list', pattern = map(${3:iterator}), format = 'file')",
+		]
+	},
+	"tar_cue_never": {
+		"prefix": "tar_cue_never",
+		"body": [
+			", cue = tar_cue('never')",
+		]
+	},
+	"tar_cue_never_standalone": {
+		"prefix": "tar_cue_never_standalone",
+		"body": [
+			"tar_option_set(cue = tar_cue('never'))",
+		]
+	},
+	"tar_cue_never_standalone_reverse": {
+		"prefix": "tar_cue_never_standalone_reverse",
+		"body": [
+			"tar_option_set(cue = tar_cue('thorough'))",
+		]
+	},
+	"Substitute": {
+	  "prefix": "_w",
+	  "body": [
+		"substitute($TM_SELECTED_TEXT)"
+	  ],
+	  "description": "Creates a function given the text selection"
+	},
+	"tar_read": {
+		"prefix": "tarr",
+		"body": [
+		  "tar_read($TM_SELECTED_TEXT)"
+		],
+		"description": "Creates a function given the text selection"
+	  },
+	"rmd_yaml": {
+		"prefix": "rmd_yaml",
+		"body": [
+			"---",
+			"title: \"\" ",
+			"author: \"Timing Liu, Martin Group\" ",
+			"date: \"`r Sys.Date()`\" ",
+			"output: html_document ",
+			"---",
+			"",
+			"```{r setup, include=FALSE}",
+			"knitr::opts_chunk\\$set(echo = FALSE)",
+			"```"
+		]
+	},
+	"rmd_code": {
+		"prefix": "rmd_code",
+		"body": [
+			"---",
+			"",			
+			"```{r fig.dim = c(16, 9), out.height='500px'}",
+			"",
+			"```"
+		]
+	}
+}
